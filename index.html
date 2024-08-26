@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Francis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> <!-- Added Google Font -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1a1a1a, #333);
+            color: white;
+        }
+        .hero {
+            background-image: url('./@marishashantikelly-45.jpg'); /* Add your image path */
+            height: 100vh;
+            background-size: cover;
+            background-position: center; /* Center the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero h1 {
+            position: absolute;
+            color: white;
+            font-family: 'Montserrat', sans-serif; /* Changed font */
+            font-size: 5em; /* Increased font size */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Enhanced text shadow */
+            letter-spacing: 2px; /* Added letter spacing for a modern look */
+            text-transform: uppercase; /* Uppercase text for emphasis */
+        }
+        .links {
+            display: flex; /* Changed to flex for side-by-side layout */
+            justify-content: center; /* Center the buttons */
+            margin: 20px;
+        }
+        .link {
+            position: absolute; /* Position links over the image */
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+        .link:hover {
+            background: rgba(255, 255, 255, 0.4);
+
+        }
+        image{
+            width: 45px !important;
+            height: 45px !important;
+        }
+        image:hover{
+            width: 50px !important;
+            height: 50px !important;
+
+        }
+        .quote {
+            position: absolute;
+            bottom: 20%; /* Position above the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 80%; /* Limit width */
+        }
+        .quote p {
+            font-size: 1.5em; /* Font size for quote */
+            margin: 0;
+            color: white;
+            font-style: italic; /* Italic style for quote */
+        }
+        .link.instagram { top: 80%; left: 30%; } /* Adjust position for Instagram */
+        .link.apple { top: 80%; left: 45%; } /* Adjust position for Apple Music */
+        .link.spotify { top: 80%; left: 60%; } /* Adjust position for Spotify */
+        .timeline {
+            padding: 50px 20px;
+            background: #222;
+            overflow: hidden; /* Prevent overflow during animation */
+        }
+        .timeline h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .event {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 5px solid orange;
+            opacity: 0; /* Start hidden for animation */
+            transform: translateY(20px); /* Start slightly below */
+            animation: fadeInUp 0.5s forwards; /* Animation */
+        }
+        .event:nth-child(1) { animation-delay: 0.2s; }
+        .event:nth-child(2) { animation-delay: 0.4s; }
+        .event:nth-child(3) { animation-delay: 0.6s; }
+        .event:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1; /* Fade in */
+                transform: translateY(0); /* Move to original position */
+            }
+        }
+        .reels {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+        .reel {
+            margin: 10px;
+            width: 100%; /* Full width for responsiveness */
+            max-width: 300px; /* Set max width for reels */
+            aspect-ratio: 9 / 16; /* Maintain a 9:16 aspect ratio */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .reel iframe, .reel video {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove border */
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Walking Francis</h1>
+        <div class="quote">
+            <p>"Music is the universal language of mankind."</p> <!-- Add your quote here -->
+        </div>
+        <br>
+        <br>
+        <a class="link instagram" href="https://www.instagram.com/yourprofile" target="_blank">
+            <img src="https://cdn.pixabay.com/photo/2021/06/15/12/14/instagram-6338393_1280.png" alt="Instagram" width="45" height="45"> <!-- Add Instagram logo path -->
+        </a>
+        <a class="link apple" href="https://music.apple.com/yourprofile" target="_blank">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAFm0lEQVR4Ac2ZA5NkSRRGM7Q/ZGzbtm3bnlnbtm3btm27gmtnvld33xdVJzoqKrv6TQ9fxIlzt/Jm3q9fl7bHjdw0rgo7+uhDwtyt08K8rZdnfjHz5xm/ZXWSYRDmbcOCenfXk8y/aYZmlWdOU4ZYNgpwYfbmsWHOlkJG6VBMjRuBx9Q4TkFZ4oG5q7O3nJs1GYRZmwwLj8toDecnfj41BmVStqrAWeO5bIQwcyOmxtQ4Bmt7fJ6yVQTWrfczNljIwDE8psagwzE1zkON/Tw9nPVddEiYvr6QYXsbP20dFtSN7S8oq8uKaUEPxpi6FsdhLdpfY113bdspFjYcy2O55iur81PWXB6mrLHGoEMwNQbdHYVLLr7R0seet+KX31kxJKarmKYWFmyP74+grC5MXvNimLzaGoPH1Bq2+QRLLrre0keeteLn31jxP281LvXnnqeszk9c+XmYtMpEmLgSC/O4jNYwJMdfYOlDz1jxs68Jt1tX2Hi87cb8z12YuOJ3GsKEFZgaR9eTI8+yPbkIzHkQmQ+/uTB+eeLHLzcRMDWuZz294tY9D7zhuPj5cRIXxi0z8Jgax9k7gdcdnWseOD9miYWxS3OhXiySy27ZK4EDM8gil2dgZjs/ejENphrHCLhMcunNNcPw1lX8rmDpky9ZcsmNFraeZGHGOkufebUUeM2R8fMjKJsLoxZZfXhMjUtUBS4Wi4TTmsLphcL+CtKb7iVw3cyRCzE1ZrY5FoUfsQBT4ygETl97l3CsNQiBw+ojdmu+C8Pnmy8TMKgZR9CvWFey42Ttg+h51Di9/u5S4BWH0a8zMbMx+8z5YfMslPE4J8nFN/BpxRl5qQzMbByBNReGzrVGUhHYZ//th8zBQj2YGlt63V2lvct21q1jiJznwuDZ5ushZE2YGgt9Z+DTip4K1I85k73X3kFg+mvup3Z+0CweMGpZBAzqwxp6wXXlT6tj6cPUmLNxxR1mvRac5cLAmVYfHsepC7z+mGg/dew87nBYsj3XfGrn+083DwNmYGocWy8F5tOqvIapMTVOrr69tHfhVtZz7Xe+3zQLoEUcQb1YJOdfQ2DjnOh5kf26wwTmPNZi/ZzrfN+plpeAyyTnXc2nFWs42k+tX2/61gcErlqvNd/5PlMslPGYGlP3noyFAvNpFe/PwOrRt7v05bes+NsfxhXmb2aezsTMwmAuaLHXRGHUMnWN9YrA9ACEaassfecji10EplfhMDUGF3pmRU5Cr0lYP62lz79WGrrqsNLj9EE2TP/rVOvyczbUnY8jsOZC9/EWekwQ5jE1huz5pg8LfTUs/vyrcYUVu0znqBcLPd7Q5ccvic7nLEztfLdxPGDUcgVjF+m5Fx1IYPZioS9FNS790Po1M4f90TzUzncdaw1R6znIm39074i5/A0ieulFqL6gMBnUtbK40GVM4ruMMS86j8Z19Yw11tClF1Yon4Gpk1Mu0hf76rB3PqS7Rm8ulNX5TqN/951GmVBILIJo4HlY/PMv/Vq1rwrO03NfHxTJLfdZcuZl5sctjvZrHhYeQ5bV+Y4jPw9qyshqDHpbqfkHkuSGuxiofsxZOEZkHsT3K6sLHUa+6DuMMBFwGerk2HPiv9aHntJPrr79grI632H45b7dMBO+/XBchd7gdTfTux625NyrzE9aVtUfMDWuTe79yuqyB6aFbKjwbYfiEtQyPXKOfmpML6bGeVBWpz8S+zZDChl2kFNQ1tI/GbQbNta3HmxVtBqEqfF+Rxkr/1Gm5cBzFaYmLQfiKKzRH3AZreE8+6mVjZyOQrdbC77FAKsPHYBFwGW0hvcWyqRsVYEhNO8/1jcfUPDN+9uBRBmUhVzVgYG73azfNN+s7+WZX8z8uW/a9zffrF+S2TILo5YBWMMRWEt0tmZoVnnmNO4qwP+012FtGhhl7gAAAABJRU5ErkJggg==" alt="Apple Music" width="45" height="45"> <!-- Add Apple Music logo path -->
+        </a>
+        <a class="link spotify" href="https://open.spotify.com/yourprofile" target="_blank">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsBAMAAADsqkcyAAAAMFBMVEVHcEwd118d1l8d118d118d118d118d12Ae12Ae3WIf42Ud118d118d118d1mAd1l4EeRIGAAAAEHRSTlMAGz9mgJ/T+v///+W6VS4ODrctrAAAAj9JREFUeAF9kwPMHEEUgKcKfyusbdu2bdvc2Uujat7ehdXOTv74sDMNage13Ya/Y9Zh9d75qu/83eKRpSjpN3/+2NYsl0b9NzrG+AfmFuXYCUEjARzjr8v2A5S0LADLcvTajC0PCg5xBPdnp2zjLW7CkrejrZK6q5+y5IPnkwdftyAL60zi8IoY5BBYzYglHEBYBAeCR8g2kdzijiGkoMsJ2StxDWVCl58+fbqVGy148ipTRPDg3Jrinz8/tuje/4nCqPhJzHsLr+zJUvzof93nIlqEl7b3sCxKH/l08Wa+fY6xwhYNbXq0ZMT3RyI4i1X4/FRxu2Vbb1g3Lt+bTvX76uM9O7ogL9vKENq9OQKztgN72GABnIywMHZPheawfLAPY3xYnQP3xlZXvxn/JKCd2JwBEiNcAgD7W39IhPf2gXZcByCCmm6c4tNU7UjgqAXpj9379n1dT12dGuMApMG5+Pb+FQDr8t1XjBU8phrSLUHaxkOUPjCHsU6oT1KAAjBACZ7Ryr3NBgMFiOmAE1o/b3h1v2kblRebfw0gcJ7KLU7XJAIsmRbwjKSCY6mAn0D1sRgrVdg+AAIAQ8uXHCob+t/femPD3RrGuqEV7ktqAziWMlobHXr2gX5SG+JF8SS1HpS/tvE1alpyTFAhWMTY1sQd4wMBKXBiUwNB6acR6fHJHTYuUsNW8Pto1v1vkFnBFsHTlkfr0kuiMkuiZ2etlMGgOT7BbM9dQA2Iyl1AVvhuI06QPrD8A8sld7l/Ae9KbXma8APcAAAAAElFTkSuQmCC" alt="Spotify" width="45" height="45"> <!-- Add Spotify logo path -->
+        </a>
+    </div>
+    <div class="timeline">
+        <h2>Timeline</h2>
+        <div class="event">
+            <h3>2023 - New Album Release</h3>
+            <p>Walking Francis releases a new album that takes the music world by storm.</p>
+        </div>
+        <div class="event">
+            <h3>2022 - World Tour</h3>
+            <p>Embarked on a world tour, performing in over 20 countries.</p>
+        </div>
+        <div class="event">
+            <h3>2021 - Breakthrough Single</h3>
+            <p>Released a single that topped the charts and gained international recognition.</p>
+        </div>
+        <div class="event">
+            <h3>2020 - Debut Album</h3>
+            <p>Launched the debut album, marking the beginning of an exciting journey.</p>
+        </div>
+    </div>
+    <div class="reels">
+
+        <div class="reel">
+            <video autoplay>
+                <source src="WALKINGFRANCIS4.mp4" type="video/mp4"> <!-- Add your video path -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </div>
+    <hr>
+    <hr>
+    <p>made by <b>Adheesh</b> with love</p>
+</body>
+</html>
